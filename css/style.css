@@ -7,11 +7,13 @@
 .background {
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(#7FBCD2,#A5F1E9 );
+  background-image: linear-gradient(rgba(0,8,51, 0.9), rgba(165, 241, 233, 0.9)), url(../images/cocktail.jpg);
+  background-position: center;
+  background-size: cover;
 }
 
 section {
-  height: 50vh;
+  height: 25vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,7 +41,7 @@ section {
 }
 
 ::placeholder {
-  color: black;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .search-bar button img {
@@ -53,4 +55,33 @@ section {
   height: 60px;
   background: #58629b;
   cursor: pointer;
+}
+
+
+.result{
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.result img {
+  height: 250px;
+  border-radius: 20%;
+}
+
+#step{
+  font-family: poppins;
+  margin-top: 30px;
+  padding-left: 40px;
+  width: 400px;
+  align-self: center;
+}
+
+#drinkName {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-family: poppins;
+  color: #CFD2CF;
 }
