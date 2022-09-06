@@ -8,21 +8,10 @@ document.getElementById('next').addEventListener('click', nextDrink);
 
 let i = 0;
 
-function pervDrink() {
-  getDrink();
-  i --;
-  console.log(i);
-}
-    
-function nextDrink() {
-  getDrink();
-  i ++;
-  console.log(i);    
-}
 
-
+// Gets the API on What ever the user types in
 function getDrink() {
-  let drink = document.querySelector('input').value
+  let drink = document.querySelector('input').value.toLocaleLowerCase();
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
   .then(res => res.json())
   .then(data => {
@@ -32,9 +21,59 @@ function getDrink() {
   })
   .catch(err => {
     console.log(`error ${err}`)
-    alert("Please enter a valid cocktail");
   })
 }
+
+
+
+
+// Added One the the index to go to the next item on the arary
+function pervDrink() {
+  let drink = document.querySelector('input').value.toLowerCase();
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
+  .then(res => res.json())
+  .then(data => {
+    let drinksLength = data.drinks.length;
+    if (i <= -1 ) {
+      getDrink();
+      i = drinksLength;
+      i--;
+    } 
+  })
+  .catch(err => {
+    console.log(`error ${err}`)
+  })
+  getDrink();
+  i --;
+  console.log(i);
+}
+
+// Decreases the number of the array so it show the previous item
+function nextDrink() {
+  let drink = document.querySelector('input').value.toLocaleLowerCase();
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
+  .then(res => res.json())
+  .then(data => {
+    let drinksLength = data.drinks.length;
+    if (i < drinksLength -1 ) {
+      getDrink();
+      i++;
+      console.log(i);
+      console.log(data);
+    } else{
+      getDrink();
+      i = 0;
+    }
+  })
+  .catch(err => {
+    console.log(`error ${err}`)
+  })
+}
+
+
+
+
+
  
 
 
