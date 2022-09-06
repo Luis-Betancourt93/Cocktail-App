@@ -71,6 +71,12 @@ section {
   border-radius: 20%;
 }
 
+.center{
+  display: flex;
+  flex-direction: row;
+}
+
+
 #step{
   font-family: poppins;
   margin-top: 30px;
@@ -84,4 +90,17 @@ section {
   margin-bottom: 20px;
   font-family: poppins;
   color: #CFD2CF;
+}
+
+.center button {
+  display: flex;
+  align-items: center;
+  width: 50px;
+  background: transparent;
+  border: none;
+}
+
+#next {
+  
+  justify-content: flex-end;
 }
